@@ -299,7 +299,7 @@ export default function HomePage() {
                 <div className="space-y-8">
                   <div className="relative pl-12">
                     <div className="absolute left-0 top-1 w-8 h-8 bg-gray-900 rounded-full" />
-                    <p className="font-mono text-sm text-gray-500">Nov 1, 2026</p>
+                    <p className="font-mono text-sm text-gray-500">Nov 1, 2025</p>
                     <h3 className="text-xl font-bold mt-1">Build Semester Begins</h3>
                     <p className="text-gray-600 mt-2">
                       Invited build teams arrive to construct major structures and infrastructure.
@@ -307,7 +307,7 @@ export default function HomePage() {
                   </div>
                   <div className="relative pl-12">
                     <div className="absolute left-0 top-1 w-8 h-8 bg-gray-900 rounded-full" />
-                    <p className="font-mono text-sm text-gray-500">Jan 5, 2027</p>
+                    <p className="font-mono text-sm text-gray-500">Jan 5, 2026</p>
                     <h3 className="text-xl font-bold mt-1">Quarter begins</h3>
                     <p className="text-gray-600 mt-2">
                       All Martians arrive for orientation, Ideas Week, and the start of the academic program.
@@ -315,7 +315,7 @@ export default function HomePage() {
                   </div>
                   <div className="relative pl-12">
                     <div className="absolute left-0 top-1 w-8 h-8 bg-gray-900 rounded-full" />
-                    <p className="font-mono text-sm text-gray-500">April 2, 2027</p>
+                    <p className="font-mono text-sm text-gray-500">April 2, 2026</p>
                     <h3 className="text-xl font-bold mt-1">Final Showcase</h3>
                     <p className="text-gray-600 mt-2">
                       A multi-day event to share projects, research, and art with the community.
@@ -323,7 +323,7 @@ export default function HomePage() {
                   </div>
                   <div className="relative pl-12">
                     <div className="absolute left-0 top-1 w-8 h-8 bg-gray-900 rounded-full" />
-                    <p className="font-mono text-sm text-gray-500">April 27, 2027</p>
+                    <p className="font-mono text-sm text-gray-500">April 27, 2026</p>
                     <h3 className="text-xl font-bold mt-1">Unbuild Ends</h3>
                     <p className="text-gray-600 mt-2">
                       All structures are disassembled and stored, returning the land to its original state.
