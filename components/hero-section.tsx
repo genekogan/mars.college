@@ -200,12 +200,22 @@ export default function HeroSection() {
     <section ref={sectionRef} className="relative h-screen flex items-start justify-start overflow-hidden bg-black">
       {/* Poster Image - first frame extracted with ffmpeg */}
       {!videoLoaded && (
-        <div 
-          className="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: `url('/video/hero-first-frame.webp')`
-          }}
-        />
+        <>
+          {/* Desktop poster */}
+          <div 
+            className="hidden md:block absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{ 
+              backgroundImage: `url('/video/hero-first-frame.webp')`
+            }}
+          />
+          {/* Mobile poster */}
+          <div 
+            className="block md:hidden absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{ 
+              backgroundImage: `url('/video/hero-first-frame-mobile.webp')`
+            }}
+          />
+        </>
       )}
       
       {/* Video - shows immediately when loaded */}

@@ -17,6 +17,20 @@ interface CustomLightboxProps {
 export default function CustomLightbox({ open, close, slides, index, setIndex }: CustomLightboxProps) {
   const touchStartY = useRef<number>(0)
   
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartY.current = e.touches[0].clientY
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const touchEndY = e.changedTouches[0].clientY
+    const deltaY = touchStartY.current - touchEndY
+    
+    // If swipe down more than 100px, close lightbox
+    if (deltaY < -100) {
+      close()
+    }
+  }
+  
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -36,20 +50,6 @@ export default function CustomLightbox({ open, close, slides, index, setIndex }:
       window.removeEventListener("keydown", handleKeyDown)
     }
   }, [open, close, setIndex, slides.length])
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartY.current = e.touches[0].clientY
-  }
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    const touchEndY = e.changedTouches[0].clientY
-    const deltaY = touchStartY.current - touchEndY
-    
-    // If swipe down more than 100px, close lightbox
-    if (deltaY < -100) {
-      close()
-    }
-  }
 
   if (!open || index < 0 || index >= slides.length) {
     return null
@@ -79,6 +79,8 @@ export default function CustomLightbox({ open, close, slides, index, setIndex }:
     <div
       className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 animate-in fade-in-50"
       onClick={handleOverlayClick}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       role="dialog"
       aria-modal="true"
     >
