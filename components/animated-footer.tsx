@@ -1,67 +1,78 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ExternalLink, Mail } from "lucide-react"
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, Mail } from "lucide-react";
 
 export default function AnimatedFooter() {
-  const animationRef = useRef<boolean>(false)
+  const animationRef = useRef<boolean>(false);
 
   useEffect(() => {
-    if (animationRef.current) return
-    animationRef.current = true
+    if (animationRef.current) return;
+    animationRef.current = true;
 
     const setupAnimation = () => {
-      let initFrame = false
-      const minDist = 480
-      const maxDist = 550
-      const minVelocity = 0.0000425
-      const maxVelocity = 0.0000565
-      const startTime = new Date()
-      const distance: number[] = []
-      const offset: number[] = []
-      const velocity: number[] = []
+      let initFrame = false;
+      const minDist = 480;
+      const maxDist = 550;
+      const minVelocity = 0.0000425;
+      const maxVelocity = 0.0000565;
+      const startTime = new Date();
+      const distance: number[] = [];
+      const offset: number[] = [];
+      const velocity: number[] = [];
 
       for (let i = 0; i < 9; i++) {
-        distance.push(minDist + (maxDist - minDist) * Math.random())
-        offset.push(100000 * Math.random())
-        velocity.push(minVelocity + (maxVelocity - minVelocity) * Math.random())
+        distance.push(minDist + (maxDist - minDist) * Math.random());
+        offset.push(100000 * Math.random());
+        velocity.push(
+          minVelocity + (maxVelocity - minVelocity) * Math.random()
+        );
       }
 
       const animationInterval = setInterval(() => {
-        const ms = new Date().getTime() - startTime.getTime()
+        const ms = new Date().getTime() - startTime.getTime();
 
         for (let i = 0; i < 9; i++) {
-          const t = -10 + distance[i] * ((velocity[i] * (ms + offset[i])) % 1)
-          const euc = document.getElementById("euc" + (i + 1))
+          const t = -10 + distance[i] * ((velocity[i] * (ms + offset[i])) % 1);
+          const euc = document.getElementById("euc" + (i + 1));
 
           if (euc && (t < 105 || !initFrame)) {
-            euc.style.left = t + "%"
+            euc.style.left = t + "%";
             if (euc.style.display !== "inline") {
-              euc.style.display = "inline"
-              euc.style.left = t + "%"
+              euc.style.display = "inline";
+              euc.style.left = t + "%";
             }
           }
         }
-        initFrame = true
-      }, 30)
+        initFrame = true;
+      }, 30);
 
-      return () => clearInterval(animationInterval)
-    }
+      return () => clearInterval(animationInterval);
+    };
 
-    const cleanup = setupAnimation()
-    return cleanup
-  }, [])
+    const cleanup = setupAnimation();
+    return cleanup;
+  }, []);
 
   return (
     <div className="relative">
       {/* Animated Desert Section */}
-      <div id="join" className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
+      <div
+        id="join"
+        className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden"
+      >
         <div id="join_inner" className="relative w-full h-full">
           {/* Desert Background */}
-          <Image src="/images/desert.jpg" alt="Desert landscape" fill className="object-cover" priority />
+          <Image
+            src="/images/desert.jpg"
+            alt="Desert landscape"
+            fill
+            className="object-cover"
+            priority
+          />
 
           {/* Animated Creatures */}
           <Image
@@ -154,7 +165,13 @@ export default function AnimatedFooter() {
           <div className="flex flex-col items-center space-y-6">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <Image src="/images/mars-logo.png" alt="Mars College Logo" width={32} height={32} className="w-8 h-8" />
+              <Image
+                src="/images/mars-logo.png"
+                alt="Mars College Logo"
+                width={32}
+                height={32}
+                className="w-8 h-8"
+              />
               <span className="text-xl font-bold">Mars College</span>
             </div>
 
@@ -165,7 +182,10 @@ export default function AnimatedFooter() {
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-black bg-transparent"
               >
-                <Link href="mailto:hello@mars.college" className="flex items-center">
+                <Link
+                  href="mailto:hello@mars.college"
+                  className="flex items-center"
+                >
                   <Mail className="w-4 h-4 mr-2" />
                   Email
                 </Link>
@@ -176,14 +196,20 @@ export default function AnimatedFooter() {
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-black bg-transparent"
               >
-                <Link href="https://marscollege.substack.com" className="flex items-center">
+                <Link
+                  href="https://marscollege.substack.com"
+                  className="flex items-center"
+                >
                   <ExternalLink className="w-4 h-4 mr-2" />
                   Substack
                 </Link>
               </Button>
 
               <Button asChild className="bg-white text-black hover:bg-gray-100">
-                <Link href="https://mars.college/apply" className="flex items-center">
+                <Link
+                  href="https://forms.gle/HAP6JSMnB4i55aTAA"
+                  className="flex items-center"
+                >
                   Apply Now <ExternalLink className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
@@ -197,5 +223,5 @@ export default function AnimatedFooter() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
