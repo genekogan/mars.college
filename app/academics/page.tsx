@@ -5,8 +5,9 @@ import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Film, Calendar, GalleryThumbnails, Music, Cpu, Gamepad2 } from "lucide-react"
-import Lightbox from "yet-another-react-lightbox"
 import SiteHeader from "@/components/site-header"
+import SiteFooter from "@/components/site-footer"
+import CustomLightbox from "@/components/custom-lightbox"
 
 const timelineEvents = [
   {
@@ -66,6 +67,23 @@ const academicsGalleryImages = [
     alt: "An overhead view inside a workshop showing hydroponic systems and other builds.",
   },
 ]
+
+const electronicaImages = [
+  {
+    src: "/images/electronica/film-festival.jpg",
+    alt: "A person curating a wall of printed AI-generated images for the gallery.",
+  },
+  {
+    src: "/images/electronica/gallery.jpeg",
+    alt: "An art installation of CRT monitors in a long corridor facing the desert.",
+  },
+  {
+    src: "/images/electronica/live-events.jpg",
+    alt: "A large face projected onto a rock formation at night with an audience watching.",
+  },
+]
+
+const allLightboxImages = [...academicsGalleryImages, ...electronicaImages]
 
 export default function AcademicsPage() {
   const [lightboxIndex, setLightboxIndex] = useState(-1)
@@ -239,13 +257,17 @@ export default function AcademicsPage() {
               <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 {/* The Gallery Card */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 overflow-hidden flex flex-col">
-                  <div className="relative h-56 w-full">
+                  <div
+                    className="relative h-56 w-full cursor-pointer group overflow-hidden"
+                    onClick={() => setLightboxIndex(academicsGalleryImages.length + 0)}
+                  >
                     <Image
                       src="/images/electronica/film-festival.jpg"
                       alt="A person curating a wall of printed AI-generated images for the gallery."
                       fill
-                      className="object-cover"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
                   </div>
                   <div className="p-6 flex-grow flex flex-col">
                     <div className="flex items-center gap-4 mb-4">
@@ -260,13 +282,17 @@ export default function AcademicsPage() {
 
                 {/* AI Film Festival Card */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 overflow-hidden flex flex-col">
-                  <div className="relative h-56 w-full">
+                  <div
+                    className="relative h-56 w-full cursor-pointer group overflow-hidden"
+                    onClick={() => setLightboxIndex(academicsGalleryImages.length + 1)}
+                  >
                     <Image
                       src="/images/electronica/gallery.jpeg"
                       alt="An art installation of CRT monitors in a long corridor facing the desert."
                       fill
-                      className="object-cover"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
                   </div>
                   <div className="p-6 flex-grow flex flex-col">
                     <div className="flex items-center gap-4 mb-4">
@@ -281,13 +307,17 @@ export default function AcademicsPage() {
 
                 {/* Exhibition Card */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 overflow-hidden flex flex-col">
-                  <div className="relative h-56 w-full">
+                  <div
+                    className="relative h-56 w-full cursor-pointer group overflow-hidden"
+                    onClick={() => setLightboxIndex(academicsGalleryImages.length + 2)}
+                  >
                     <Image
                       src="/images/electronica/live-events.jpg"
                       alt="A large face projected onto a rock formation at night with an audience watching."
                       fill
-                      className="object-cover"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
                   </div>
                   <div className="p-6 flex-grow flex flex-col">
                     <div className="flex items-center gap-4 mb-4">
@@ -325,12 +355,14 @@ export default function AcademicsPage() {
             </div>
           </section>
         </main>
+        <SiteFooter />
       </div>
-      <Lightbox
+      <CustomLightbox
         open={lightboxIndex >= 0}
-        index={lightboxIndex}
         close={() => setLightboxIndex(-1)}
-        slides={academicsGalleryImages}
+        index={lightboxIndex}
+        setIndex={setLightboxIndex}
+        slides={allLightboxImages}
       />
     </>
   )

@@ -5,11 +5,12 @@ import Link from "next/link"
 import { useState, useEffect, useMemo } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ExternalLink, Mail, ArrowRight, Instagram, Github } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import HeroSection from "@/components/hero-section"
 import AnimatedScene from "@/components/animated-scene"
-
-import Lightbox from "yet-another-react-lightbox"
+import SiteHeader from "@/components/site-header"
+import SiteFooter from "@/components/site-footer" // Import SiteFooter
+import CustomLightbox from "@/components/custom-lightbox"
 
 const featureImages = [
   {
@@ -111,64 +112,7 @@ export default function HomePage() {
   return (
     <>
       <div className="min-h-screen bg-white text-gray-900">
-        {/* Header */}
-        <header className="fixed top-0 w-full z-50 py-4 px-2">
-          <div className="container mx-auto bg-white/30 backdrop-blur-sm border border-white/20 rounded-2xl h-16 flex items-center justify-between px-4 lg:px-6">
-            <Link href="/" className="flex items-center space-x-2">
-              <Image src="/images/mars-logo.png" alt="Mars College Logo" width={32} height={32} className="w-8 h-8" />
-              <span className="text-xl font-bold text-gray-900">Mars College</span>
-            </Link>
-
-            <nav className="hidden md:flex items-center space-x-6">
-              <Link href="#about" className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">
-                About
-              </Link>
-              <Link
-                href="#academics"
-                className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium"
-              >
-                Academics
-              </Link>
-              <Link href="#gallery" className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">
-                Gallery
-              </Link>
-              <Link
-                href="#timeline"
-                className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium"
-              >
-                Timeline
-              </Link>
-              <div className="flex items-center gap-1">
-                <Button asChild variant="ghost" size="icon" className="text-gray-700 hover:text-gray-900 w-8 h-8">
-                  <Link
-                    href="https://x.com/mars_college"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="X (formerly Twitter)"
-                  >
-                    <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                    </svg>
-                  </Link>
-                </Button>
-                <Button asChild variant="ghost" size="icon" className="text-gray-700 hover:text-gray-900 w-8 h-8">
-                  <Link
-                    href="https://www.instagram.com/mars.college"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            </nav>
-
-            <Button asChild className="bg-black text-white hover:bg-gray-800">
-              <Link href="#apply">Apply for 2026</Link>
-            </Button>
-          </div>
-        </header>
+        <SiteHeader />
 
         {/* Hero Section with new video background */}
         <HeroSection />
@@ -339,77 +283,15 @@ export default function HomePage() {
         <AnimatedScene />
 
         {/* Simplified Footer */}
-        <footer className="bg-gray-900 text-white py-8">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col items-center space-y-6">
-              <div className="flex items-center space-x-2">
-                <Image src="/images/mars-logo.png" alt="Mars College Logo" width={32} height={32} className="w-8 h-8" />
-                <span className="text-xl font-bold">Mars College</span>
-              </div>
-              <div className="flex flex-wrap justify-center items-center gap-4">
-                <Button
-                  asChild
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-black bg-transparent"
-                >
-                  <Link href="mailto:hello@mars.college" className="flex items-center">
-                    <Mail className="w-4 h-4 mr-2" /> Email
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-black bg-transparent"
-                >
-                  <Link href="https://marscollege.substack.com" className="flex items-center">
-                    <ExternalLink className="w-4 h-4 mr-2" /> Substack
-                  </Link>
-                </Button>
-                <div className="flex items-center gap-2">
-                  <Button asChild variant="ghost" size="icon" className="text-white hover:bg-white/10 hover:text-white">
-                    <Link
-                      href="https://x.com/mars_college"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="X (formerly Twitter)"
-                    >
-                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                      </svg>
-                    </Link>
-                  </Button>
-                  <Button asChild variant="ghost" size="icon" className="text-white hover:bg-white/10 hover:text-white">
-                    <Link
-                      href="https://www.instagram.com/mars.college"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Instagram"
-                    >
-                      <Instagram className="h-5 w-5" />
-                    </Link>
-                  </Button>
-                  <Button asChild variant="ghost" size="icon" className="text-white hover:bg-white/10 hover:text-white">
-                    <Link
-                      href="https://github.com/mars-college"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="GitHub"
-                    >
-                      <Github className="h-5 w-5" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
 
-      <Lightbox
+      <CustomLightbox
         open={lightboxIndex >= 0}
-        index={lightboxIndex}
         close={() => setLightboxIndex(-1)}
-        slides={allLightboxImages.map((image) => ({ src: image.src }))}
+        index={lightboxIndex}
+        setIndex={setLightboxIndex}
+        slides={allLightboxImages}
       />
     </>
   )

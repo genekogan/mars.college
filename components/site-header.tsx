@@ -10,8 +10,7 @@ import { cn } from "@/lib/utils"
 const navLinks = [
   { name: "About", href: "#about" },
   { name: "Academics", href: "/academics" },
-  { name: "Gallery", href: "#gallery" },
-  { name: "Timeline", href: "#timeline" },
+  { name: "Blog", href: "https://marscollege.substack.com/" },
 ]
 
 interface SiteHeaderProps {
@@ -48,15 +47,21 @@ export default function SiteHeader({ variant = "transparent" }: SiteHeaderProps)
         </Link>
 
         <nav className="hidden md:flex items-center space-x-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={getHref(link.href)}
-              className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium"
-            >
-              {link.name}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isExternal = link.href.startsWith("http")
+            const href = isExternal ? link.href : getHref(link.href)
+            return (
+              <Link
+                key={link.name}
+                href={href}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium"
+              >
+                {link.name}
+              </Link>
+            )
+          })}
           <div className="flex items-center gap-1">
             <Button asChild variant="ghost" size="icon" className="text-gray-700 hover:text-gray-900 w-8 h-8">
               <Link
