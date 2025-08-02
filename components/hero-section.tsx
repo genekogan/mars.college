@@ -74,6 +74,7 @@ export default function HeroSection() {
 
     const handleVideoLoaded = () => setVideoLoaded(true)
     const handleVideoLoadStart = () => setVideoLoaded(false)
+    const handleVideoPlaying = () => setVideoLoaded(true)
 
     // Reset state on mount
     setVideoLoaded(false)
@@ -85,11 +86,13 @@ export default function HeroSection() {
 
     video.addEventListener('loadeddata', handleVideoLoaded)
     video.addEventListener('canplay', handleVideoLoaded)
+    video.addEventListener('playing', handleVideoPlaying)
     video.addEventListener('loadstart', handleVideoLoadStart)
 
     return () => {
       video.removeEventListener('loadeddata', handleVideoLoaded)
       video.removeEventListener('canplay', handleVideoLoaded)
+      video.removeEventListener('playing', handleVideoPlaying)
       video.removeEventListener('loadstart', handleVideoLoadStart)
     }
   }, [])
