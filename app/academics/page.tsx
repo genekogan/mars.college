@@ -118,9 +118,8 @@ export default function AcademicsPage() {
                 <h2 className="text-3xl md:text-4xl font-bold">A New Kind of School</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mt-6">
                   We believe everyone should know how to build their own personal AIs that help them live, learn, and
-                  thrive in a place like Mars. That self-reliance extends to AI; we should learn how it works and how to
-                  get the most out of the available tools for research, learn, acquiring new skills quickly, and being
-                  creative.
+                  thrive in a place like Mars. That self-reliance extends to technology; we learn how these tools work
+                  to master new domains and bring ambitious projects to life.
                 </p>
               </div>
             </div>
@@ -132,11 +131,10 @@ export default function AcademicsPage() {
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold">Creative AI School</h2>
                 <p className="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">
-                  The Creative AI school is a 6-week crash course on applying AI tools to research, art, and personal
-                  growth. It focuses on how AI and AI agents work, on how to use them for productivity, research, and
-                  self-reliantly doing things that previously required expensive experts to do. The course will
-                  specialize in creative agents, those that produce art and film and music videos as well as
-                  autonomously run its own social media accounts.
+                  The Creative AI school is a 6-week crash course on applying AI tools to personal research, art, and
+                  learning. The course specializes in creative agents, AI assistants that produce art, film, music, and
+                  other creative media. We explore how to collaborate with these agents, guiding them to generate novel
+                  ideas and build autonomous systems for creative production.
                 </p>
               </div>
               <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mt-16">
@@ -148,9 +146,8 @@ export default function AcademicsPage() {
                   </div>
                   <h3 className="text-2xl font-bold mb-2">Vibe Coding</h3>
                   <p className="text-gray-600">
-                    A bootcamp / nocode engineering school where we learn to build applications, films, and games with
-                    an ease previously available only to software engineers but now to anyone who knows what they want
-                    to build.
+                    A bootcamp / nocode engineering school where we learn to build computer applications with an ease
+                    previously available only to software engineers.
                   </p>
                 </div>
                 <div className="text-center p-6 border rounded-lg bg-white shadow-md">
@@ -161,8 +158,8 @@ export default function AcademicsPage() {
                   </div>
                   <h3 className="text-2xl font-bold mb-2">Film Academy</h3>
                   <p className="text-gray-600">
-                    A filmmaker co-op focused on applying AI tools towards making films, commercials, music videos, and
-                    other media, and to produce the 4th annual Mars Film Festival.
+                    A filmmaker co-op focused on using generative AI towards making films, commercials, and other media.
+                    The academy will produce the 4th annual Mars Film Festival.
                   </p>
                 </div>
                 <div className="text-center p-6 border rounded-lg bg-white shadow-md">
