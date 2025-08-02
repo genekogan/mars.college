@@ -3,7 +3,7 @@
 import type React from "react"
 
 import Image from "next/image"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 
 interface CustomLightboxProps {
@@ -15,6 +15,8 @@ interface CustomLightboxProps {
 }
 
 export default function CustomLightbox({ open, close, slides, index, setIndex }: CustomLightboxProps) {
+  const touchStartY = useRef<number>(0)
+  
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -34,6 +36,20 @@ export default function CustomLightbox({ open, close, slides, index, setIndex }:
       window.removeEventListener("keydown", handleKeyDown)
     }
   }, [open, close, setIndex, slides.length])
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartY.current = e.touches[0].clientY
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const touchEndY = e.changedTouches[0].clientY
+    const deltaY = touchStartY.current - touchEndY
+    
+    // If swipe down more than 100px, close lightbox
+    if (deltaY < -100) {
+      close()
+    }
+  }
 
   if (!open || index < 0 || index >= slides.length) {
     return null
