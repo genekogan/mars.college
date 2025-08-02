@@ -84,10 +84,24 @@ export default function HeroSection() {
       setVideoLoaded(true)
     }
 
+    // Try to play video manually for browsers that block autoplay
+    const tryPlay = async () => {
+      try {
+        await video.play()
+        setVideoLoaded(true)
+      } catch (error) {
+        console.log('Autoplay prevented, showing poster')
+        // Keep poster visible if autoplay fails
+      }
+    }
+
     video.addEventListener('loadeddata', handleVideoLoaded)
     video.addEventListener('canplay', handleVideoLoaded)
     video.addEventListener('playing', handleVideoPlaying)
     video.addEventListener('loadstart', handleVideoLoadStart)
+    
+    // Try to play video after a short delay if autoplay doesn't work
+    setTimeout(tryPlay, 100)
 
     return () => {
       video.removeEventListener('loadeddata', handleVideoLoaded)
