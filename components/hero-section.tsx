@@ -61,55 +61,9 @@ const shuffleArray = (array: any[]) => {
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const animatorRefs = useRef<(HTMLImageElement | null)[]>([])
-  const videoRef = useRef<HTMLVideoElement>(null)
   const [animators, setAnimators] = useState<Animator[]>([])
-  const [videoLoaded, setVideoLoaded] = useState(false)
 
   const transformDataRef = useRef({ scale: 1, imageLeft: 0, imageTop: 0 })
-
-  // Effect 0: Handle video loading state
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-
-    const handleVideoLoaded = () => setVideoLoaded(true)
-    const handleVideoLoadStart = () => setVideoLoaded(false)
-    const handleVideoPlaying = () => setVideoLoaded(true)
-
-    // Reset state on mount
-    setVideoLoaded(false)
-
-    // Check if video is already loaded (cached)
-    if (video.readyState >= 3) {
-      setVideoLoaded(true)
-    }
-
-    // Try to play video manually for browsers that block autoplay
-    const tryPlay = async () => {
-      try {
-        await video.play()
-        setVideoLoaded(true)
-      } catch (error) {
-        console.log('Autoplay prevented, showing poster')
-        // Keep poster visible if autoplay fails
-      }
-    }
-
-    video.addEventListener('loadeddata', handleVideoLoaded)
-    video.addEventListener('canplay', handleVideoLoaded)
-    video.addEventListener('playing', handleVideoPlaying)
-    video.addEventListener('loadstart', handleVideoLoadStart)
-    
-    // Try to play video after a short delay if autoplay doesn't work
-    setTimeout(tryPlay, 100)
-
-    return () => {
-      video.removeEventListener('loadeddata', handleVideoLoaded)
-      video.removeEventListener('canplay', handleVideoLoaded)
-      video.removeEventListener('playing', handleVideoPlaying)
-      video.removeEventListener('loadstart', handleVideoLoadStart)
-    }
-  }, [])
 
   // Effect 1: Initialize all animators once on mount.
   useEffect(() => {
@@ -215,40 +169,18 @@ export default function HeroSection() {
 
   return (
     <section ref={sectionRef} className="relative h-screen flex items-start justify-start overflow-hidden bg-black">
-      {/* Poster Image - first frame extracted with ffmpeg */}
-      {!videoLoaded && (
-        <>
-          {/* Desktop poster */}
-          <div 
-            className="hidden md:block absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{ 
-              backgroundImage: `url('/video/hero-first-frame.webp')`
-            }}
-          />
-          {/* Mobile poster */}
-          <div 
-            className="block md:hidden absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{ 
-              backgroundImage: `url('/video/hero-first-frame-mobile.webp')`
-            }}
-          />
-        </>
-      )}
-      
-      {/* Video - shows immediately when loaded */}
       <video
-        ref={videoRef}
         className="absolute top-0 left-0 w-full h-full object-cover"
         autoPlay
         loop
         muted
         playsInline
         preload="auto"
+        poster="/video/hero-poster.png"
       >
         <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/video_inspire_ca_mars_1080-lO6q3NEi60J8eP0Qv7tvsK1de3hUAk.mp4" type="video/mp4" media="(min-width: 768px)" />
         <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/video_inspire_ca_mars_720-ZmyLPaZsYtxoXVqahq8nSzfw8wB6Aa.mp4" type="video/mp4" media="(max-width: 767px)" />
       </video>
-      
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 
       <div className="relative z-10 w-full h-full flex flex-col justify-start pt-48 lg:pt-56">

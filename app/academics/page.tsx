@@ -169,7 +169,10 @@ export default function AcademicsPage() {
                     </div>
                   </div>
                   <h3 className="text-2xl font-bold mb-2">Game Jam</h3>
-                  <p className="text-gray-600">Build digital and physical games.</p>
+                  <p className="text-gray-600">
+                    A focused game development and playtesting group exploring the possibilities of generative AI in
+                    digital and physical games.
+                  </p>
                 </div>
               </div>
             </div>
