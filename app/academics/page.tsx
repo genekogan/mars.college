@@ -348,7 +348,7 @@ export default function AcademicsPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSeON-_N_rrD_ThblW_v5l5yCM0s8fgS1eiKYnRy8TV5nXs4lA/viewform">
+                <Link href="https://forms.gle/KqFCBut4NhmFwmUN7">
                   Apply for Mars College <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
