@@ -73,7 +73,7 @@ export default function AnimatedScene({
   title = "Join us on Mars",
   subtitle = "Applications for 2026 are now open. Propose an academic program, a structure, or a service and join us in building our world.",
   primaryButtonText = "Apply Now",
-  primaryButtonLink = "https://docs.google.com/forms/d/e/1FAIpQLSeON-_N_rrD_ThblW_v5l5yCM0s8fgS1eiKYnRy8TV5nXs4lA/viewform",
+  primaryButtonLink = "https://forms.gle/KqFCBut4NhmFwmUN7",
   primaryButtonExternal = true,
   secondaryButtonText = "Contact Us",
   secondaryButtonLink = "mailto:hello@mars.college",
