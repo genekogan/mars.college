@@ -90,7 +90,7 @@ export default function SiteHeader({ variant = "transparent" }: SiteHeaderProps)
 
         <Button asChild className="bg-black text-white hover:bg-gray-800">
           <Link
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeON-_N_rrD_ThblW_v5l5yCM0s8fgS1eiKYnRy8TV5nXs4lA/viewform"
+            href="https://forms.gle/KqFCBut4NhmFwmUN7"
             target="_blank"
             rel="noopener noreferrer"
           >
