@@ -38,6 +38,7 @@
     "@radix-ui/react-toggle-group": "latest",
     "@radix-ui/react-tooltip": "latest",
     "autoprefixer": "^10.4.20",
+    "blurhash": "^2.0.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "latest",
@@ -49,6 +50,7 @@
     "next": "15.2.4",
     "next-themes": "latest",
     "react": "^19",
+    "react-blurhash": "^0.3.0",
     "react-day-picker": "latest",
     "react-dom": "^19",
     "react-hook-form": "latest",
@@ -64,7 +66,9 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "canvas": "^3.2.0",
     "postcss": "^8.5",
+    "sharp": "^0.34.4",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
   }

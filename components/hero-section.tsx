@@ -176,7 +176,7 @@ export default function HeroSection() {
         muted
         playsInline
         preload="auto"
-        poster="/video/hero-poster.png"
+        poster="/video/hero-poster.webp"
       >
         <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/video_inspire_ca_mars_1080-lO6q3NEi60J8eP0Qv7tvsK1de3hUAk.mp4" type="video/mp4" media="(min-width: 768px)" />
         <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/video_inspire_ca_mars_720-ZmyLPaZsYtxoXVqahq8nSzfw8wB6Aa.mp4" type="video/mp4" media="(max-width: 767px)" />
