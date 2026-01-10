@@ -167,7 +167,7 @@ export default function FreesidePage() {
                 <strong>New years groundbreaking party:</strong> Tuesday, December 31st, 2024.
               </li>
               <li>
-                <strong>Official semester start date:</strong> Monday, Jan 13th, 2025 (full moon.)
+                <strong>Official semester start date:</strong> Monday, Jan 1th, 2025 (full moon.)
               </li>
               <li>
                 <strong>Official semester end date:</strong> Sunday, April 13th, 2025

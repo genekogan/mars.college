@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import Link from "next/link"
-import { useState, useEffect, useMemo } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight } from "lucide-react"
-import HeroSection from "@/components/hero-section"
-import AnimatedScene from "@/components/animated-scene"
-import SiteHeader from "@/components/site-header"
-import SiteFooter from "@/components/site-footer"
-import CustomLightbox from "@/components/custom-lightbox"
+import Image from "next/image";
+import Link from "next/link";
+import { useState, useEffect, useMemo } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight } from "lucide-react";
+import HeroSection from "@/components/hero-section";
+import AnimatedScene from "@/components/animated-scene";
+import SiteHeader from "@/components/site-header";
+import SiteFooter from "@/components/site-footer";
+import CustomLightbox from "@/components/custom-lightbox";
 
 const featureImages = [
   {
@@ -24,20 +24,22 @@ const featureImages = [
     src: "/images/research-and-learn.jpg",
     alt: "A community gathering for a talk inside a structure at night.",
     title: "Research & Learn",
-    description: "Harness AI, solar, and off-grid tech to explore new frontiers in self-reliance and creativity.",
+    description:
+      "Harness AI, solar, and off-grid tech to explore new frontiers in self-reliance and creativity.",
   },
   {
     src: "/images/find-your-joy.jpg",
     alt: "A group doing yoga at sunrise in the desert.",
     title: "Find Your Joy",
-    description: "Pursue self-actualization, develop new skills, and form deep connections with like-minded people.",
+    description:
+      "Pursue self-actualization, develop new skills, and form deep connections with like-minded people.",
   },
-]
+];
 
 const academicsImage = {
   src: "/images/academics-workshop.jpg",
   alt: "A peer-led electronics workshop at Mars College",
-}
+};
 
 const initialGalleryImages = [
   {
@@ -68,8 +70,14 @@ const initialGalleryImages = [
     src: "/images/gallery/crt-installation.jpg",
     alt: "An art installation with a wall of CRT monitors displaying generative art.",
   },
-  { src: "/images/gallery/geodesic-dome.jpg", alt: "A geodesic dome lit with purple lights in the desert at night." },
-  { src: "/images/gallery/sunset-watch.jpg", alt: "People watching the sunset from a raised platform in the desert." },
+  {
+    src: "/images/gallery/geodesic-dome.jpg",
+    alt: "A geodesic dome lit with purple lights in the desert at night.",
+  },
+  {
+    src: "/images/gallery/sunset-watch.jpg",
+    alt: "People watching the sunset from a raised platform in the desert.",
+  },
   {
     src: "/images/gallery/settlement-aerial.jpg",
     alt: "An aerial view of the Mars College settlement with RVs and custom structures.",
@@ -82,32 +90,38 @@ const initialGalleryImages = [
     src: "/images/gallery/settlement-wide.jpg",
     alt: "A wide shot of the Mars College settlement against a mountain backdrop.",
   },
-]
+];
 
 // Fisher-Yates shuffle algorithm
 const shuffleArray = (array: any[]) => {
   let currentIndex = array.length,
-    randomIndex
+    randomIndex;
   while (currentIndex !== 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex)
-    currentIndex--
-    ;[array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]]
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
   }
-  return array
-}
+  return array;
+};
 
 export default function HomePage() {
-  const [lightboxIndex, setLightboxIndex] = useState(-1)
-  const [galleryImages, setGalleryImages] = useState(initialGalleryImages)
+  const [lightboxIndex, setLightboxIndex] = useState(-1);
+  const [galleryImages, setGalleryImages] = useState(initialGalleryImages);
 
   useEffect(() => {
-    const firstImage = initialGalleryImages[0]
-    const restImages = initialGalleryImages.slice(1)
-    const shuffledRest = shuffleArray(restImages)
-    setGalleryImages([firstImage, ...shuffledRest])
-  }, [])
+    const firstImage = initialGalleryImages[0];
+    const restImages = initialGalleryImages.slice(1);
+    const shuffledRest = shuffleArray(restImages);
+    setGalleryImages([firstImage, ...shuffledRest]);
+  }, []);
 
-  const allLightboxImages = useMemo(() => [...featureImages, academicsImage, ...galleryImages], [galleryImages])
+  const allLightboxImages = useMemo(
+    () => [...featureImages, academicsImage, ...galleryImages],
+    [galleryImages]
+  );
 
   return (
     <>
@@ -122,8 +136,8 @@ export default function HomePage() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 max-w-4xl mx-auto leading-tight">
-                Mars College: A 3-month experiment building an off-grid village to explore future technology and
-                self-preservation.
+                Mars College: A 3-month experiment building an off-grid village
+                to explore future technology and self-preservation.
               </h2>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -134,7 +148,13 @@ export default function HomePage() {
                 >
                   <div
                     className="relative h-56 w-full cursor-pointer group"
-                    onClick={() => setLightboxIndex(allLightboxImages.findIndex((img) => img.src === image.src))}
+                    onClick={() =>
+                      setLightboxIndex(
+                        allLightboxImages.findIndex(
+                          (img) => img.src === image.src
+                        )
+                      )
+                    }
                   >
                     <Image
                       src={image.src || "/placeholder.svg"}
@@ -145,8 +165,12 @@ export default function HomePage() {
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors" />
                   </div>
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-2 text-gray-900">{image.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{image.description}</p>
+                    <h3 className="text-xl font-bold mb-2 text-gray-900">
+                      {image.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {image.description}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -160,7 +184,13 @@ export default function HomePage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div
                 className="relative h-96 lg:h-auto lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl group cursor-pointer"
-                onClick={() => setLightboxIndex(allLightboxImages.findIndex((img) => img.src === academicsImage.src))}
+                onClick={() =>
+                  setLightboxIndex(
+                    allLightboxImages.findIndex(
+                      (img) => img.src === academicsImage.src
+                    )
+                  )
+                }
               >
                 <Image
                   src={academicsImage.src || "/placeholder.svg"}
@@ -171,17 +201,22 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors" />
               </div>
               <div className="lg:order-first">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Academics</h2>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+                  Academics
+                </h2>
                 <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
                   <p>
-                    Academics at Mars revolve around technology, off-grid living, and other subjects contributed by
-                    residents through an open calendar and shared spaces. We build an auditorium, classroom, library,
-                    and gallery, then invite Martians to activate them through workshops, installations, and
+                    Academics at Mars revolve around technology, off-grid
+                    living, and other subjects contributed by residents through
+                    an open calendar and shared spaces. We build an auditorium,
+                    classroom, library, and gallery, then invite Martians to
+                    activate them through workshops, installations, and
                     experiences.
                   </p>
                   <p>
-                    We extend the idea of self-reliance to AI technology. We believe everyone should know how to build
-                    their own personal AIs that help them live, learn, and thrive.{" "}
+                    We extend the idea of self-reliance to AI technology. We
+                    believe everyone should know how to build their own personal
+                    AIs that help them live, learn, and thrive.{" "}
                     <a
                       href="https://eden.art"
                       target="_blank"
@@ -190,13 +225,19 @@ export default function HomePage() {
                     >
                       The Eden team
                     </a>{" "}
-                    helps to run the AI program, grants Martians free compute, and the program culminates in a final
-                    exhibition, gallery, and film festival.
+                    helps to run the AI program, grants Martians free compute,
+                    and the program culminates in a final exhibition, gallery,
+                    and film festival.
                   </p>
                 </div>
-                <Button asChild variant="link" className="text-lg p-0 h-auto mt-6">
+                <Button
+                  asChild
+                  variant="link"
+                  className="text-lg p-0 h-auto mt-6"
+                >
                   <Link href="/academics">
-                    Learn more about academics <ArrowRight className="ml-2 w-5 h-5" />
+                    Learn more about academics{" "}
+                    <ArrowRight className="ml-2 w-5 h-5" />
                   </Link>
                 </Button>
               </div>
@@ -208,14 +249,22 @@ export default function HomePage() {
         <section id="gallery" className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Life on Mars</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+                Life on Mars
+              </h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {galleryImages.map((image) => (
                 <div
                   key={image.src}
                   className="relative group overflow-hidden rounded-lg cursor-pointer h-64"
-                  onClick={() => setLightboxIndex(allLightboxImages.findIndex((img) => img.src === image.src))}
+                  onClick={() =>
+                    setLightboxIndex(
+                      allLightboxImages.findIndex(
+                        (img) => img.src === image.src
+                      )
+                    )
+                  }
                 >
                   <Image
                     src={image.src || "/placeholder.svg"}
@@ -235,7 +284,9 @@ export default function HomePage() {
         <section id="timeline" className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Timeline</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+                Timeline
+              </h2>
             </div>
             <div className="max-w-2xl mx-auto">
               <div className="relative">
@@ -243,35 +294,47 @@ export default function HomePage() {
                 <div className="space-y-8">
                   <div className="relative pl-12">
                     <div className="absolute left-0 top-1 w-8 h-8 bg-gray-900 rounded-full" />
-                    <p className="font-mono text-sm text-gray-500">Nov 1, 2025</p>
+                    <p className="font-mono text-sm text-gray-500">
+                      Nov 1, 2025
+                    </p>
                     <h3 className="text-xl font-bold mt-1">Build begins</h3>
                     <p className="text-gray-600 mt-2">
-                      Invited build teams arrive to construct major structures and infrastructure.
+                      Invited build teams arrive to construct major structures
+                      and infrastructure.
                     </p>
                   </div>
                   <div className="relative pl-12">
                     <div className="absolute left-0 top-1 w-8 h-8 bg-gray-900 rounded-full" />
-                    <p className="font-mono text-sm text-gray-500">Jan 5, 2026</p>
+                    <p className="font-mono text-sm text-gray-500">
+                      Jan 12, 2026
+                    </p>
                     <h3 className="text-xl font-bold mt-1">Quarter begins</h3>
                     <p className="text-gray-600 mt-2">
-                      All Martians arrive for orientation, Ideas Week, and the start of the academic program.
+                      All Martians arrive for orientation, Ideas Week, and the
+                      start of the academic program.
                     </p>
                   </div>
                   <div className="relative pl-12">
                     <div className="absolute left-0 top-1 w-8 h-8 bg-gray-900 rounded-full" />
-                    <p className="font-mono text-sm text-gray-500">April 2, 2026</p>
+                    <p className="font-mono text-sm text-gray-500">
+                      March 16, 2026
+                    </p>
                     <h3 className="text-xl font-bold mt-1">Mars Electronica</h3>
                     <p className="text-gray-600 mt-2">
-                      A multi-day final showcase to share projects, research, and art with the community, along with our
-                      4th annual AI Film Festival.
+                      A multi-day final showcase to share projects, research,
+                      and art with the community, along with our 4th annual AI
+                      Film Festival.
                     </p>
                   </div>
                   <div className="relative pl-12">
                     <div className="absolute left-0 top-1 w-8 h-8 bg-gray-900 rounded-full" />
-                    <p className="font-mono text-sm text-gray-500">April 27, 2026</p>
+                    <p className="font-mono text-sm text-gray-500">
+                      April 6, 2026
+                    </p>
                     <h3 className="text-xl font-bold mt-1">Unbuild Ends</h3>
                     <p className="text-gray-600 mt-2">
-                      All structures are disassembled and stored, returning the land to its original state.
+                      All structures are disassembled and stored, returning the
+                      land to its original state.
                     </p>
                   </div>
                 </div>
@@ -295,5 +358,5 @@ export default function HomePage() {
         slides={allLightboxImages}
       />
     </>
-  )
+  );
 }
