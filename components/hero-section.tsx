@@ -193,8 +193,8 @@ export default function HeroSection() {
           </h1>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" asChild className="bg-white text-black hover:bg-gray-100 sm:w-auto">
-              <Link href="#apply">
-                Apply Now <ArrowRight className="ml-2 w-4 h-4" />
+              <Link href="https://marscollege.substack.com/" target="_blank" rel="noopener noreferrer">
+                Get Updates <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
             <Button

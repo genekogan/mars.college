@@ -184,17 +184,17 @@ export default function FreesidePage() {
           </div>
 
           <div className="text-center mt-16 border-t pt-12">
-            <h2 className="text-3xl font-bold mb-2">Sound exciting? Apply today.</h2>
+            <h2 className="text-3xl font-bold mb-2">Sound exciting? Get updates.</h2>
             <p className="text-gray-600 mb-6">
-              Space is limited and participants are accepted on a first come, first serve basis.
+              Join the mailing list for future Freeside and Mars College announcements.
             </p>
             <Button size="lg" asChild className="bg-black text-white hover:bg-gray-800">
               <Link
-                href="https://docs.google.com/forms/d/e/1FAIpQLSeON-_N_rrD_ThblW_v5l5yCM0s8fgS1eiKYnRy8TV5nXs4lA/viewform"
+                href="https://marscollege.substack.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Apply to Freeside <ArrowRight className="ml-2 w-5 h-5" />
+                Get Updates <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
           </div>

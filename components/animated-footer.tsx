@@ -183,8 +183,8 @@ export default function AnimatedFooter() {
               </Button>
 
               <Button asChild className="bg-white text-black hover:bg-gray-100">
-                <Link href="https://mars.college/apply" className="flex items-center">
-                  Apply Now <ExternalLink className="ml-2 w-4 h-4" />
+                <Link href="https://marscollege.substack.com/" className="flex items-center">
+                  Get Updates <ExternalLink className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
             </div>

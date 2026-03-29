@@ -80,9 +80,9 @@ export default function TeaserPage() {
         {/* Animated Scene & Application CTA */}
         <AnimatedScene
           title="Mars College 2026 is coming"
-          subtitle="Applications for 2026 will open August 10. If you are interested, get in touch!"
-          primaryButtonText="Inquiry form"
-          primaryButtonLink="https://docs.google.com/forms/d/e/1FAIpQLSeON-_N_rrD_ThblW_v5l5yCM0s8fgS1eiKYnRy8TV5nXs4lA/viewform"
+          subtitle="Get updates on Mars College 2026 as dates, programs, and participation details take shape."
+          primaryButtonText="Get Updates"
+          primaryButtonLink="https://marscollege.substack.com/"
         />
 
         {/* Photo Gallery */}

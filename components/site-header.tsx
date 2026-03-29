@@ -90,11 +90,11 @@ export default function SiteHeader({ variant = "transparent" }: SiteHeaderProps)
 
         <Button asChild className="bg-black text-white hover:bg-gray-800">
           <Link
-            href="https://forms.gle/KqFCBut4NhmFwmUN7"
+            href="https://marscollege.substack.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Apply for 2026
+            Get Updates
           </Link>
         </Button>
       </div>

@@ -71,9 +71,9 @@ interface AnimatedSceneProps {
 
 export default function AnimatedScene({
   title = "Join us on Mars",
-  subtitle = "Applications for 2026 are now open. Propose an academic program, a structure, or a service and join us in building our world.",
-  primaryButtonText = "Apply Now",
-  primaryButtonLink = "https://forms.gle/KqFCBut4NhmFwmUN7",
+  subtitle = "Get updates on Mars College 2026, future programs, and ways to get involved as plans take shape.",
+  primaryButtonText = "Get Updates",
+  primaryButtonLink = "https://marscollege.substack.com/",
   primaryButtonExternal = true,
   secondaryButtonText = "Contact Us",
   secondaryButtonLink = "mailto:hello@mars.college",

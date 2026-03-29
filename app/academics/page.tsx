@@ -381,8 +381,8 @@ export default function AcademicsPage() {
                 Ready to Build the Future?
               </h2>
               <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                Propose a project, a workshop, or a new way of living. Join us
-                in creating a new model for education and community.
+                Get updates on future programs, projects, and ways to
+                participate as Mars College continues to take shape.
               </p>
               <Button
                 size="lg"
@@ -391,8 +391,8 @@ export default function AcademicsPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Link href="https://forms.gle/KqFCBut4NhmFwmUN7">
-                  Apply for Mars College <ArrowRight className="ml-2 w-5 h-5" />
+                <Link href="https://marscollege.substack.com/">
+                  Get Updates <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
             </div>
