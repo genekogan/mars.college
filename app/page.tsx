@@ -12,6 +12,7 @@ import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import CustomLightbox from "@/components/custom-lightbox";
 
+
 const featureImages = [
   {
     src: "/images/build-your-world.jpg",
