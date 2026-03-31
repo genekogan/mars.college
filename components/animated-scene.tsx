@@ -76,7 +76,7 @@ export default function AnimatedScene({
   primaryButtonLink = "https://marscollege.substack.com/",
   primaryButtonExternal = true,
   secondaryButtonText = "Contact Us",
-  secondaryButtonLink = "mailto:hello@mars.college",
+  secondaryButtonLink = "mailto:info@mars.college",
 }: AnimatedSceneProps) {
   const sectionRef = useRef<HTMLElement>(null)
   const animatorRefs = useRef<(HTMLImageElement | null)[]>([])

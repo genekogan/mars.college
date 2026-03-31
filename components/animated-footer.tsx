@@ -165,7 +165,7 @@ export default function AnimatedFooter() {
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-black bg-transparent"
               >
-                <Link href="mailto:hello@mars.college" className="flex items-center">
+                <Link href="mailto:info@mars.college" className="flex items-center">
                   <Mail className="w-4 h-4 mr-2" />
                   Email
                 </Link>
